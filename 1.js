@@ -13,13 +13,18 @@ Challenges:
 
 */
 
-var anzacDay = 25
-var anzacMonth = 'April'
+var monthNames = new Array("January", "February", "March",
+  "April", "May", "June", "July", "August", "September",
+  "October", "November", "December");
 
-console.log(`Anzac Day is on ${anzacDay} of ${anzacMonth}`)
+var anzacDay = 25
+var anzacMonth = 4
+
+console.log(`Anzac Day is on ${anzacDay} of ${monthNames[anzacMonth]}`)
 
 var anzacDate = new Date(2018, 04, 25)
 var day = anzacDate.getDate()
 var month = anzacDate.getMonth()
 
 console.log(`Anzac Day is on ${day}/${month}`)
+console.log(`Anzac Dat is on ${anzacDate.toDateString()} next year.`)

@@ -1,3 +1,10 @@
+/*
+
+Challenges:
+1. Add a `removeItem(item)` method
+2. Add a `sortItems()` method to sort alphabetically
+
+*/
 class ShoppingList {
   constructor() {
     this.items = []
@@ -13,6 +20,8 @@ class ShoppingList {
     // If the item's index doesn't equal -1 (i.e. the item is on the list) then remove it
     if (i != -1) {
       this.items.splice(i, 1);
+    } else {
+      console.log(`There is no ${item} on the list`)
     }
   }
 
@@ -40,11 +49,3 @@ list.displayItems()
 list.removeItem('Milk')
 list.sortItems()
 list.displayItems()
-
-/*
-
-Challenges:
-1. Add a `removeItem(item)` method
-2. Add a `sortItems()` method to sort alphabetically
-
-*/

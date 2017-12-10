@@ -1,3 +1,9 @@
+function displayPerson(person) {
+  const firstName = person.firstName
+  const lastName = person.lastName
+  console.log(`  ${firstName} ${lastName}`)
+}
+
 function displayMovie(movie) {
   const title = movie.title
   const yearReleased = movie.yearReleased
@@ -6,36 +12,36 @@ function displayMovie(movie) {
 
   console.log(`Title: ${title}`)
   console.log(`Year released: ${yearReleased}`)
-  console.log(`Stars: ${stars.join(', ')}`)
+  console.log(`Stars: `)
+
+  stars.forEach(displayPerson)
+  // alternate format
+  // stars.forEach((person) => {
+  //   displayPerson(person)
+  // })
+
   console.log(`Director: ${director}`)
+  console.log('-------')
 }
 
-// Create a function declaration that takes movie as a parameter
-function splitString(movie) {
-  // Create a variable - names - and assign it the stars of each movie
-  var names = movie.stars
-  // Iterate over each stars' name
-  names.forEach((name) => {
-    // Create a variable that takes the first name/s in each string
-    var firstName = name.split(' ').slice(0, -1).join(' ');
-    // Create a variable that take sthe final name in each string
-    var lastName = name.split(' ').slice(-1).join(' ');
-    // Output 
-    console.log(`First name: ${firstName}, Last name: ${lastName}`)
-  })
-}
-  
+// Object with properties
 const forestGump = {
   title: 'Forest Gump',
   yearReleased: 1994,
-  stars: ['Tom Hanks', 'Robin Wright'],
+  stars: [
+    { firstName: 'Tom', lastName: 'Hanks'}, 
+    { firstName: 'Robin', lastName: 'Wright'}
+  ],
   director: 'Robert Zemeckis'
 }
 
 const backToTheFuture = {
   title: 'Back to the Future',
   yearReleased: 1985,
-  stars: ['Michael J. Fox', 'Christopher Lloyd'],
+  stars: [
+    { firstName: 'Michael J.', lastName: 'Fox' },
+    { firstName: 'Christopher', lastName: 'Lloyd' }
+  ],
   director: 'Robert Zemeckis'
 }
   
@@ -49,19 +55,28 @@ const backToTheFuture = {
 const princessBride = {
   title: 'The Princess Bride',
   yearReleased: 1987,
-  stars: ['Robin Wright', 'Cary Elwes'],
+  stars: [
+    { firstName: 'Cary', lastName: 'Elwes' },
+    { firstName: 'Robin', lastName: 'Wright' }
+  ],
   director: 'Rob Reiner'
 }
 const georgeOfTheJungle = {
   title: 'George of the Jungle',
   yearReleased: 1997,
-  stars: ['Brendan Fraser', 'Leslie Mann', 'Thomas Haden Church'],
+  stars: [
+    { firstName: 'Brendan', lastName: 'Fraser' },
+    { firstName: 'Leslie', lastName: 'Mann' }
+],
   director: 'Sam Weisman'
 }
 const liarLiar = {
   title: 'Liar Liar',
   yearReleased: 1997,
-  stars: ['Jim Carey', 'Maura Tierney'],
+  stars: [
+    { firstName: 'Jim', lastName: 'Carey' }, 
+    { firstName: 'Maura', lastName: 'Tierney'}
+  ],
   director: 'Tom Shadyac',
 }
 
@@ -71,6 +86,3 @@ displayMovie(princessBride)
 displayMovie(georgeOfTheJungle)
 displayMovie(liarLiar)
 
-// Test output of function
-splitString(forestGump)
-splitString(backToTheFuture)

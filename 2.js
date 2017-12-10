@@ -30,16 +30,65 @@ Challenges:
 */
 console.log('The longest fish caught in feet:', Math.max(...fishLengthsFeet));
 
-legalFishInYards = legalFishInFeet.map((lengthFeet) => (
-  (lengthFeet / 3).toFixed(2)
-))
+// Alternative
+let longestInCM = 0
+legalFishInCentimetres.forEach((cm) => {
+  if (cm > longestInCM) {
+    // New longest fish record
+    longestInCM = cm
+  }
+})
 
-console.log('Legal fish in yards: ', legalFishInYards)
+console.log('longest in cm', longestInCM)
+
+// Convert to yards
+
+// let fishLengthsYards = []
+// fishLengthsFeet.forEach(lengthFeet) => {
+//   // Create a new variable called yards
+//   const yards = length / 3
+//   // Push each item onto the fishLengthsYards array
+//   fishLengthsYards.push(yards)
+// }
+
+// Alternative
+// let fishLengthsYards2 = fishLengthsFeet.map(lengthFeet) => {
+//   // Create a new variable called yards
+//   return lengthFeet / 3
+// }
+
+// legalFishInYards = legalFishInFeet.map((lengthFeet) => (
+//   (lengthFeet / 3).toFixed(2)
+// ))
+
+// console.log('Legal fish in yards: ', legalFishInYards)
 
 
-function compareNumbers(a, b) {
-  return a - b;
-}
+// function compareNumbers(a, b) {
+//   return a - b;
+// }
 
-var sortedFishInCms = legalFishInCentimetres.sort(compareNumbers)
-console.log("Sorted fish lengths in cms: ", sortedFishInCms)
+// var sortedFishInCms = legalFishInCentimetres.sort(compareNumbers)
+// console.log("Sorted fish lengths in cms: ", sortedFishInCms)
+
+// Alternative
+let copy = legalFishInCentimetres.slice()
+let sortedCms = copy.sort((a,b) => {
+  if (a < b) {
+    return -1
+  } else if (a > b) {
+    return 1
+  } else {
+    return 0
+  }
+})
+
+console.log('sorted in centimetres', sortedCms)
+
+// find average
+let totalCm = 0
+legalFishInCentimetres.forEach((cm) => {
+  totalCm += cm
+})
+
+console.log('Average fish length in cm', (totalCm / legalFishInCentimetres.length))

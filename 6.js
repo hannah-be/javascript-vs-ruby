@@ -1,12 +1,7 @@
 function formatOrdinal(number) {
-  if (number == 11) {
-    return '11th'
-  }
-  else if (number == 12) {
-    return '12th'
-  }
-  else if (number == 13) {
-    return '13th'
+  const elevensies = number % 100
+  if (elevensies === 11 || elevensies === 12 || elevensies === 13) {
+    return `${number}th`
   }
 
   const digit = number % 10
@@ -27,7 +22,7 @@ for (let n = 1; n <= 25; n++) {
 }
 
 console.log(formatOrdinal(100))
-console.log(formatOrdinal(101))
-console.log(formatOrdinal(102))
-console.log(formatOrdinal(103))
-console.log(formatOrdinal(104))
+console.log(formatOrdinal(111))
+console.log(formatOrdinal(221))
+console.log(formatOrdinal(5613))
+console.log(formatOrdinal(10253))
